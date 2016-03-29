@@ -1,7 +1,7 @@
 
 var myApp = angular.module("myApp", []);
 
-myApp.controller("myController", function($scope){
+myApp.controller("myController", function($scope, $http){
 	$scope.name = "";
 	$scope.population = "";
 	$scope.leader = "";

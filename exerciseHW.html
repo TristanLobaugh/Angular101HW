@@ -19,19 +19,21 @@
 			<input type="text" ng-model="leader" placeholder="Leader" ng-blur="addToArray()" value="">
 			<input type="text" ng-model="flagColors" placeholder="Flag Colors" ng-blur="addToArray()" value="">
 		</div>
+		
+		<input type="text" ng-model="sortInput">
 
 		<div id="table-wrapper">
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>Country</th>
-						<th>Population</th>
-						<th>Leader</th>
-						<th>Flag Colors</th>
+						<th><a href="" ng-click="sortField='name'; reverse = !reverse">Country</a></th>
+						<th><a href="" ng-click="sortField='population'; reverse = !reverse">Population</a></th>
+						<th><a href="" ng-click="sortField='leader'; reverse = !reverse">Leader</a></th>
+						<th><a href="" ng-click="sortField='flagColors'; reverse = !reverse">Flag Colors</a></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="country in countries track by $index">
+					<tr ng-repeat="country in countries | filter:sortInput | orderBy:sortField:reverse track by $index">
 						<td>{{country.name}}</td>
 						<td>{{country.population}}</td>
 						<td>{{country.leader}}</td>
