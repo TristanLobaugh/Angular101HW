@@ -6,15 +6,6 @@ myApp.controller("myController", function($scope){
 	$scope.population = "";
 	$scope.leader = "";
 	$scope.flagColors = "";
-
-	function Country(name, population, leader, flagColors){
-		this.name = name;
-		this.population = population;
-		this.leader = leader;
-		this.flagColors = flagColors;
-		$scope.countries.push(this);
-	}
-
 	$scope.countries = [
 		{
 			name: "USA",
@@ -77,6 +68,14 @@ myApp.controller("myController", function($scope){
 			flagColors: ["red", "white", "blue"]
 		},
 	]
+
+	function Country(name, population, leader, flagColors){
+		this.name = name;
+		this.population = population;
+		this.leader = leader;
+		this.flagColors = flagColors;
+		$scope.countries.push(this);
+	}
 
 	$scope.addToArray = function(){
 		if($scope.name.length > 0  && $scope.population.length > 0 && $scope.leader.length > 0 && $scope.flagColors.length > 0){
